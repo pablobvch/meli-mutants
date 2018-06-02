@@ -1,0 +1,26 @@
+{
+  "name": "meli-mutants",
+  "version": "1.0.0",
+  "description": "this is a javascript and nodejs api to resolve the Magneto's demands ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablobvch/meli-mutants.git"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "x-men",
+    "magneto",
+    "meli"
+  ],
+  "author": "Pablo Ariel Bilevich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablobvch/meli-mutants/issues"
+  },
+  "homepage": "https://github.com/pablobvch/meli-mutants#readme"
+}
