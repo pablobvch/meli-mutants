@@ -165,6 +165,24 @@ function isMutant(strDNA,cb){
 
 function getStats(cb){
 
+  let objJson = {}
+
+  Dna.aggregate([{$match: {isMutant:false} },{ $group: { _id : null, sum : { $sum: "$times" } } }]).exec(function(error,result){
+    objJson.count_human_dna = result.length > 0 ? result[0].sum : 0
+
+    Dna.aggregate([{$match: {isMutant:true} },{ $group: { _id : null, sum : { $sum: "$times" } } }]).exec(function(error,result){
+      objJson.count_mutant_dna = result.length > 0 ? result[0].sum : 0
+
+      if (objJson.count_human_dna != 0){
+          objJson.ratio = objJson.count_mutant_dna/objJson.count_human_dna
+      }
+      else{
+          objJson.ratio = 0
+      }
+
+      return cb(null,objJson)
+    })
+  })
 }
 
 module.exports = {

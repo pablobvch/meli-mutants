@@ -15,8 +15,12 @@ router.post('/', function(req, res) {
 
 })
 
-router.post('/stats', function(req, res) {
-  
+router.get('/stats', function(req, res) {
+  /*const objJson = mutant.getStats()
+  return res.send(objJson)*/
+  mutant.getStats((err,data)=>{
+    res.send(data)
+  })
 })
 
 module.exports = router
