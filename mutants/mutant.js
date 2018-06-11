@@ -112,12 +112,13 @@ function isValidDNA(listRow){
 
 function createOrUpdateDNA(data, being, cb) {
 
-  const _isMutant = being == MUTANT ? true: false
+  const _isMutant = being == constant.MUTANT ? true: false
 
   const dna = new Dna(),
-        query = { dna: data, isMutant: _isMutant  },
+        query = { dna: data, isMutant: _isMutant},
         update = {$inc: {'times': 1}},
-        options = { upsert: true, new: true, setDefaultsOnInsert: true }
+        //options = { upsert: true, new: true, setDefaultsOnInsert: true }*/
+        options = {upsert:true}
 
   // Find the document
   Dna.findOneAndUpdate(query, update, options, function(error, result) {
@@ -129,8 +130,6 @@ function createOrUpdateDNA(data, being, cb) {
 
 function isMutant(strDNA,cb){
 
-    if (err) { res.status(500).send('Error')  }
-
     let being = constant.HUMAN
 
     const listRow = strDNA.toUpperCase().split(',')
@@ -139,27 +138,27 @@ function isMutant(strDNA,cb){
       return cb(null,constant.INVALID_DNA)
 
     if(listRow.length < constant.MUTANT_PATTERN)
-      createOrUpdateDNA(strDNA,being,(err,data) =>  {
+      return createOrUpdateDNA(strDNA,being,(err,data) =>  {
         return cb(null,being)
       })
 
     being = checkAccros(listRow)
 
     if (being == constant.MUTANT)
-      createOrUpdateDNA(strDNA,being,(err,data) =>  {
+      return createOrUpdateDNA(strDNA,being,(err,data) =>  {
         return cb(null,being)
       })
 
     being = checkDown(listRow)
 
     if (being == constant.MUTANT)
-      createOrUpdateDNA(strDNA,being,(err,data) =>  {
+      return createOrUpdateDNA(strDNA,being,(err,data) =>  {
         return cb(null,being)
       })
 
     being = checkDiagonal(listRow)
 
-    createOrUpdateDNA(strDNA,being,(err,data) =>  {
+    return createOrUpdateDNA(strDNA,being,(err,data) =>  {
       return cb(null,being)
     })
 }
