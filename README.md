@@ -4,7 +4,7 @@ Este es un backend's API para resolver los problemas con Meli-Mutants
 Para ejecutar la API debera ingresar a la siguiente URL
 
 Tipo de Metodo: POST
-Url: http://IP:3000/api/mutants
+Url: https://meli-mutant.herokuapp.com/api/mutants
 Datos de HEADER:
   {"Content-Type":"application/json"}
 Body:
@@ -28,7 +28,7 @@ Los DNA invalidos no seran insertados en la base de datos.
 Para obtener las estadisticas debera ejecutar la siguiente peticion.
 
 Tipo de Metodo: GET
-Url: http://IP:3000/api/stats
+Url: https://meli-mutant.herokuapp.com/api/stats
 Datos de HEADER:
   {"Content-Type":"application/json"}
 
