@@ -19,7 +19,7 @@ if(process.env.NODE_ENV === 'development')
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI)
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
   res.send('Hello World! This is the API REST for Meli-Mutants')
