@@ -28,7 +28,7 @@ Los DNA invalidos no seran insertados en la base de datos.
 Para obtener las estadisticas debera ejecutar la siguiente peticion.
 
 Tipo de Metodo: GET
-Url: https://meli-mutant.herokuapp.com/api/stats
+Url: https://meli-mutant.herokuapp.com/api/mutants/stats
 Datos de HEADER:
   {"Content-Type":"application/json"}
 
