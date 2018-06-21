@@ -2,11 +2,19 @@
   "name": "meli-mutants",
   "version": "1.0.0",
   "description": "this is a javascript and nodejs api to resolve the Magneto's demands ",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=development node index.js",
-    "debug": "NODE_ENV=development node --inspect-brk index.js",
+    "start": "NODE_ENV=development node server",
+    "debug": "NODE_ENV=development node --inspect-brk server",
+    "lint": "eslint lint",
+    "prettier": "prettier './**/*.js' --write",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -27,9 +35,15 @@
   "homepage": "https://github.com/pablobvch/meli-mutants#readme",
   "dependencies": {
     "dotenv": "^6.0.0",
+    "eslint-plugin-prettier": "^2.6.0",
     "express": "^4.16.3",
     "express-force-https": "^1.0.0",
     "mongoose": "^5.1.4",
     "numeric": "^1.2.6"
+  },
+  "prettier": {
+    "jsxBracketSameLine": true,
+    "semi": false,
+    "singleQuote": true
   }
 }
